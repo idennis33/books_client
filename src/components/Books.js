@@ -50,7 +50,7 @@ export default function Books(props) {
       {props.books.map((book) => {
         return (
           <div key={book.id} className="book">
-            <h1>{book.name}</h1>
+            <h1>{book.title}</h1>
             <h2>{book.author}</h2>
             <img src={book.img}/>
             <h3>{book.description}</h3>

@@ -3,12 +3,15 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link
+		Link,
+		useParams
   } from "react-router-dom";
   
   
 
   export default function Edit(props) {
+		const { id } = useParams();
+
 	const [book, updateBook] = useState({
 		    title: '',
             author: '',
@@ -18,7 +21,7 @@ import {
 	useEffect(() => {
 		(async () => {
 			try {
-				const response = await fetch(`http://localhost:3000/books/${book.id}`);
+				const response = await fetch(`http://localhost:3000/books/${id}`);
 				const data = await response.json();
 				await updateBook(data);
 			} catch (e) {
@@ -30,7 +33,7 @@ import {
 		event.preventDefault();
 		try {
 			const submission = { ...book };
-						const response = await fetch(`http://localhost:3000/books`, {
+						const response = await fetch(`http://localhost:3000/books/${id}`, {
 				method: 'PUT',
 				headers: {
 					'Content-Type': 'application/json'
