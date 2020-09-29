@@ -8,16 +8,19 @@ import {
   
   
 
-
-export default function Edit(props) {
-	const [book, updateBook] = useState({});
-
+  export default function Edit(props) {
+	const [book, updateBook] = useState({
+		    title: '',
+            author: '',
+            img: '',
+            description: ''
+	});
 	useEffect(() => {
 		(async () => {
 			try {
-                const response = await fetch(`http://localhost:3000/books`);
-                const data = await response.json();
-				data ? await updateBook(data) : updateBook({});
+				const response = await fetch(`http://localhost:3000/books/${book.id}`);
+				const data = await response.json();
+				await updateBook(data);
 			} catch (e) {
 				console.error(e);
 			}
@@ -26,21 +29,28 @@ export default function Edit(props) {
 	const handleSubmit = async event => {
 		event.preventDefault();
 		try {
-			const response = await fetch(`http://localhost:3000/books/${book.id}`, {
+			const submission = { ...book };
+						const response = await fetch(`http://localhost:3000/books`, {
 				method: 'PUT',
-				body: JSON.stringify(book),
 				headers: {
 					'Content-Type': 'application/json'
-				}
+				},
+				body: JSON.stringify(submission)
 			});
 			const data = await response.json();
-			await updateBook(data);
-			props.history.push('/');
+			await updateBook([...book, data]);
+			await updateBook({
+                title: '',
+                author: '',
+                img: '',
+                description: ''
+			});
 		} catch (e) {
-			console.log(e);
+			console.error(e);
+			console.log(book);
 		}
-	};
-	const handleChange = event => {
+    };
+    const handleChange = event => {
 		updateBook({ ...book, [event.target.id]: event.target.value });
 	};
 

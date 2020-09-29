@@ -57,13 +57,7 @@ export default function Books(props) {
             <form onSubmit={(event)=>{handleDelete(event, book.id)}}>
                 <input type="submit" value="DELETE" />
             </form>
-            {/* <form onSubmit={`/books/${book.id}/edit`}><input type = 'submit' value= 'EDIT'/></form> */}
-            <Router>
-                <Link to={`/${book.id}/edit`}>Go To Edit Page</Link>
-                {/* <Switch>
-                    <Route path ={`/${book.id}/edit`}><Edit /></Route>
-                </Switch> */}
-            </Router>
+            <Link to={`/${book.id}/edit`}>Go To Edit Page</Link>
           </div>
         );
       })}
