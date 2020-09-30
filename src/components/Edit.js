@@ -4,14 +4,13 @@ import {
     Switch,
     Route,
 		Link,
-		useParams
+		useParams, useHistory
   } from "react-router-dom";
   
   
 
   export default function Edit(props) {
 		const { id } = useParams();
-
 	const [book, updateBook] = useState({
 		    title: '',
             author: '',
@@ -41,13 +40,8 @@ import {
 				body: JSON.stringify(submission)
 			});
 			const data = await response.json();
-			await updateBook([...book, data]);
-			await updateBook({
-                title: '',
-                author: '',
-                img: '',
-                description: ''
-			});
+			await updateBook(data);
+			props.history.push('/books');
 		} catch (e) {
 			console.error(e);
 			console.log(book);

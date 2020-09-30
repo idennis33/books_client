@@ -17,21 +17,24 @@ export default function Books(props) {
             description: ''
         });
         useEffect(() => {
-            (async () => {
-                try {
-                    const response = await fetch(`http://localhost:3000/books`);
-                    const data = await response.json();
-                    await updateBook(data);
-                } catch (e) {
-                    console.error(e);
-                }
-            })();
+            getBooks();
         }, []);
+
+        const getBooks = async () => {
+            try {
+                const response = await fetch(`http://localhost:3000/books`);
+                const data = await response.json();
+                await updateBook(data);
+            } catch (e) {
+                console.error(e);
+            }
+        };
+
         const handleDelete = async (event,id) => {
             event.preventDefault();
             try {
                 const submission = { ...book };
-                            const response = await fetch(`http://localhost:3000/books/${id}`, {
+                const response = await fetch(`http://localhost:3000/books/${id}`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json'
@@ -39,6 +42,9 @@ export default function Books(props) {
                     body: JSON.stringify(submission)
                 });
                 const data = await response.json();
+                // await updateBook(data);
+                getBooks();
+                // props.history.push("/")
             } catch (e) {
                 console.error(e);
                 console.log(book);
