@@ -82,7 +82,7 @@ return (
       <input type="submit" className="submit" />
     </form>
     <main>
-      <Books books={books}/>
+    <Books books={books} getBooks={getBooks} />
     </main>
   </div>
 );

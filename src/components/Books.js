@@ -6,30 +6,30 @@ import {
     Link
   } from "react-router-dom";
   import Edit from './Edit';
-  
-  
 export default function Books(props) {
-    
         const [book, updateBook] = useState({
             title: '',
             author: '',
             img: '',
             description: ''
         });
-        useEffect(() => {
-            getBooks();
-        }, []);
-
-        const getBooks = async () => {
-            try {
-                const response = await fetch(`http://localhost:3000/books`);
-                const data = await response.json();
-                await updateBook(data);
-            } catch (e) {
-                console.error(e);
-            }
-        };
-
+        // const [refresh, setRefresh] = useState(false)
+        // useEffect(() => {
+        //   if (refresh){
+        //     getBooks();
+        //     setRefresh(false)
+        //   }
+        // }, [refresh]);
+        // const getBooks = async () => {
+        //   console.log("getBooks running")
+        //     try {
+        //         const response = await fetch(`http://localhost:3000/books`);
+        //         const data = await response.json();
+        //         // updateBook(data);
+        //     } catch (e) {
+        //         console.error(e);
+        //     }
+        // };
         const handleDelete = async (event,id) => {
             event.preventDefault();
             try {
@@ -40,17 +40,18 @@ export default function Books(props) {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(submission)
-                });
-                const data = await response.json();
+                })
+                // setRefresh(true)
+                props.getBooks()
+                // console.log(response)
+                // const data = await response.json();
                 // await updateBook(data);
-                getBooks();
                 // props.history.push("/")
             } catch (e) {
                 console.error(e);
                 console.log(book);
             }
         };
-       
   return (
     <>
       {props.books.map((book) => {
