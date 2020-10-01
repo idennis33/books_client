@@ -13,26 +13,34 @@ export default function NavBar(props) {
         <a href="/logout">Log Out</a>
       </li>
     );
+    navBarItems.push(
+        <li key={3}>
+          <a href="/new">New Book</a>
+        </li>
+      );
+
   } else {
     navBarItems.push(
-      <li key={3}>
+      <li key={4}>
         <a href="/signup">Sign Up</a>
       </li>
     );
     navBarItems.push(
-      <li key={4}>
+      <li key={5}>
         <a href="/login">Log In</a>
       </li>
     );
+  
   }
 
   return (
-    <>
-      <h1>Book Shelf</h1>
+    <div>
+      
       <nav>
+      <h1>Book Shelf</h1>
          <ul>{navBarItems}</ul>
       </nav>
-    </>
+    </div>
   );
 }
 

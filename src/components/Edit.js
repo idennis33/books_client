@@ -52,7 +52,8 @@ import {
 	};
 
 	return (
-		<div className="Page-wrapper">
+		<div className="edit">
+		<h1>Edit The Book</h1>
 			{Object.keys(book).length > 0 ? (
 				<form className="task-form" onSubmit={handleSubmit}>
 					Title:{' '}
@@ -83,7 +84,7 @@ import {
 			) : (
 				<Link to={'/'}> Go Back Home</Link>
 			)}
-
+			<Link to={'/'}> Go Back Home</Link>
 			<br />
 		</div>
 	);

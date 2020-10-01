@@ -53,10 +53,10 @@ export default function Books(props) {
             }
         };
   return (
-    <>
+    <div className="container d-flex p-4 flex-wrap"style={{gap:"5px"}}>
       {props.books.map((book) => {
         return (
-          <div key={book.id} className="book">
+          <div className="card" style={{width: '20rem', padding:'10',backgroundColor:'lightyellow',opacity:'.9', textAlign:'center'}}key={book.id}> 
             <h1>{book.title}</h1>
             <h2>{book.author}</h2>
             <img src={book.img}/>
@@ -64,10 +64,11 @@ export default function Books(props) {
             <form onSubmit={(event)=>{handleDelete(event, book.id)}}>
                 <input type="submit" value="DELETE" />
             </form>
-            <Link to={`/${book.id}/edit`}>Go To Edit Page</Link>
+            <h2><Link to={`/${book.id}/edit`}>Go To Edit Page</Link><br />
+            </h2>
           </div>
         );
       })}
-    </>
+    </div>
   );
 }

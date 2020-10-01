@@ -1,7 +1,13 @@
 nav {
-    background: green;
+    background: blue;
     padding: 0 2% 0 2%;
     text-align: right;
+  }
+  h1{
+    font-family: 'Bangers', cursive
+  }
+  ul{
+    text-align: center;
   }
   
   nav a {
@@ -27,7 +33,8 @@ nav {
   }
   
   h1 {
-    text-align: left;
+    text-align: center;
+    font-size: 50px;
     margin: 20px 0px 20px 10px;
   }
   

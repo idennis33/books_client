@@ -1,12 +1,14 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Link } from "react-router-dom";
 import Books from "./components/Books.js";
+import "./App.css";
 
 import NavBar from "./components/NavBar/NavBar";
 import SignUpForm from "./components/SignUpForm/SignUpForm";
 import LogInForm from "./components/LogInForm/LoginForm";
 import LogOut from "./components/LogOut/LogOut";
+import New from "./components/New.js";
 
 export default function App() {
   const [books, setBooks] = useState([]);
@@ -113,7 +115,7 @@ export default function App() {
     }
   };
   return (
-    <div>
+    <div className="whole">
       <NavBar isLoggedIn={isLoggedIn} />
       <div className="body">
         <Switch>
@@ -149,9 +151,19 @@ export default function App() {
               );
             }}
           />
+          <Route
+            path="/new"
+            render={(props) => {
+              return (
+                <New
+
+                />
+              );
+            }}
+          />
         </Switch>
       </div>
-      <div className="App">
+      {/* <div className="App">
         <h1 style={{ color: "whitesmoke" }}> Books</h1>
         <form onSubmit={handleSubmit}>
           <label htmlFor="Title">Title</label>
@@ -183,11 +195,11 @@ export default function App() {
             onChange={handleChange}
           />
           <input type="submit" className="submit" />
-        </form>
+        </form> */}
         <main>
           <Books books={books} getBooks={getBooks} />
         </main>
-      </div>
+      {/* </div> */}
     </div>
   );
 }

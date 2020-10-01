@@ -4,8 +4,8 @@ import "./SignUpForm.css";
 
 export default function SignUpForm(props) {
   return (
-    <div>
-      <h2>Sign Up</h2>
+    <div style={{textAlign:"center"}}>
+      <h1>Sign Up</h1>
 
       <form>
         <div>

@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import Edit from './components/Edit';
+import New from './components/New';
 import {
 	BrowserRouter as Router,
 	Switch,
@@ -11,6 +12,7 @@ import {
 	Link,
 	useRouteMatch
 } from 'react-router-dom';
+
 
 const routes = [
 	{
@@ -22,7 +24,12 @@ const routes = [
 		path: '/',
 		component: App,
 		name: 'Home'
-	}
+  },
+  {
+    path: '/new',
+    component: New,
+    name: 'New'
+  }
 ];
 
 
