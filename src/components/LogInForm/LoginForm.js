@@ -1,8 +1,13 @@
 import React from "react";
-
+import styled from 'styled-components'; 
+const Div = styled.div`
+  text-align: center;
+  background-color: grey; 
+  font-size: 20px; 
+  `  
 export default function LogInForm(props) {
   return (
-    <div style={{textAlign:"center"}}>
+    <Div>
       <h1>Log In</h1>
 
       <form>
@@ -16,7 +21,7 @@ export default function LogInForm(props) {
         </div>
         <input value="Submit" type="submit" onClick={props.handleLogIn} />
       </form>
-    </div>
+    </Div>
   );
 }
 

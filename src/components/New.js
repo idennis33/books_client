@@ -7,7 +7,7 @@ import {
 		Link,
 		useParams, useHistory
   } from "react-router-dom";
-
+  import styled from 'styled-components'; 
 
 
 export default function New(props) {
@@ -59,10 +59,18 @@ export default function New(props) {
     }
   };
 
+  const Div = styled.div`
+  text-align: center;
+  display: flex;
+  flex-direction:row; 
+  flex-wrap:wrap;
+  background-color: grey; 
+  font-size: 20px; 
+  `  
 
   return (
     
-    <div className="App">
+    <Div>
       <h1> Add A Book</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="Title">Title</label>
@@ -88,7 +96,7 @@ export default function New(props) {
         />
         <label htmlFor="description">Description</label>
         <input
-          type="text"
+          type="textbox"
           id="description"
           value={formInputs.description}
           onChange={handleChange}
@@ -96,6 +104,6 @@ export default function New(props) {
         <input type="submit" className="submit" />
       </form>
       <Link to={'/'}>Clear New Book Form </Link>
-    </div>
+    </Div>
   );
 }

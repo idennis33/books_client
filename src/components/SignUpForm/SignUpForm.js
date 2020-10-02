@@ -1,10 +1,16 @@
 import React from "react";
 
-import "./SignUpForm.css";
+import styled from 'styled-components'; 
+
+const Div = styled.div`
+  text-align: center;
+  background-color: grey; 
+  font-size: 20px; 
+  `  
 
 export default function SignUpForm(props) {
   return (
-    <div style={{textAlign:"center"}}>
+    <Div >
       <h1>Sign Up</h1>
 
       <form>
@@ -19,7 +25,7 @@ export default function SignUpForm(props) {
         </div>
         <input value="Submit" type="submit" onClick={props.handleSignUp} />
       </form>
-    </div>
+    </Div>
   );
 }
 

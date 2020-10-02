@@ -6,6 +6,22 @@ import {
     Link
   } from "react-router-dom";
   import Edit from './Edit';
+  import styled from 'styled-components'; 
+
+  const Div = styled.div`
+  width: 20rem, 
+  padding:10;
+  background-color:lightyellow;
+  opacity:.9;
+  textAlign:center;
+`
+const Div2 = styled.div`
+display:flex; 
+padding:4; 
+flex-wrap:wrap;
+gap:10px;
+flex-direction: row; 
+`
 export default function Books(props) {
         const [book, updateBook] = useState({
             title: '',
@@ -53,10 +69,10 @@ export default function Books(props) {
             }
         };
   return (
-    <div className="container d-flex p-4 flex-wrap"style={{gap:"5px"}}>
+    <Div2>
       {props.books.map((book) => {
         return (
-          <div className="card" style={{width: '20rem', padding:'10',backgroundColor:'lightyellow',opacity:'.9', textAlign:'center'}}key={book.id}> 
+          <Div><div key={book.id}> 
             <h1>{book.title}</h1>
             <h2>{book.author}</h2>
             <img src={book.img}/>
@@ -66,9 +82,9 @@ export default function Books(props) {
             </form>
             <h2><Link to={`/${book.id}/edit`}>Go To Edit Page</Link><br />
             </h2>
-          </div>
+          </div></Div>
         );
       })}
-    </div>
+    </Div2>
   );
 }

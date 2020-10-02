@@ -1,6 +1,10 @@
 import React from "react";
 import "./NavBar.css";
 
+
+
+
+
 export default function NavBar(props) {
   let navBarItems = [
     <li key={1}>
@@ -37,7 +41,6 @@ export default function NavBar(props) {
     <div>
       
       <nav>
-      <h1>Book Shelf</h1>
          <ul>{navBarItems}</ul>
       </nav>
     </div>

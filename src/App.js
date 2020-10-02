@@ -2,13 +2,27 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Route, Switch, Link } from "react-router-dom";
 import Books from "./components/Books.js";
-import "./App.css";
+
+import styled from 'styled-components'; 
+
+
 
 import NavBar from "./components/NavBar/NavBar";
 import SignUpForm from "./components/SignUpForm/SignUpForm";
 import LogInForm from "./components/LogInForm/LoginForm";
 import LogOut from "./components/LogOut/LogOut";
 import New from "./components/New.js";
+const Title = styled.h1`
+color: blue; 
+font-size: 100px; 
+background-color: grey; 
+`
+
+const Div = styled.div`
+background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQkXIQk9ic-LC9uxtee99YkZgDcC7dMS4LypA&usqp=CAU);
+background-repeat: no-repeat;
+background-size: cover;
+`
 
 export default function App() {
   const [books, setBooks] = useState([]);
@@ -115,7 +129,8 @@ export default function App() {
     }
   };
   return (
-    <div className="whole">
+    <Div>
+      <Title>Welcome to Book Shelf</Title>
       <NavBar isLoggedIn={isLoggedIn} />
       <div className="body">
         <Switch>
@@ -200,6 +215,6 @@ export default function App() {
           <Books books={books} getBooks={getBooks} />
         </main>
       {/* </div> */}
-    </div>
+    </Div>
   );
 }

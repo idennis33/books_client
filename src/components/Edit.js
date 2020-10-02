@@ -6,6 +6,7 @@ import {
 		Link,
 		useParams, useHistory
   } from "react-router-dom";
+  import styled from 'styled-components'; 
   
   
 
@@ -51,11 +52,21 @@ import {
 		updateBook({ ...book, [event.target.id]: event.target.value });
 	};
 
+const Title = styled.h1`
+color: blue; 
+font-size: 100px; 
+background-color: grey; 
+`
+const Body = styled.div`
+background-color: grey; 
+`
+
+
 	return (
 		<div className="edit">
-		<h1>Edit The Book</h1>
+		<Title>Edit The Book</Title>
 			{Object.keys(book).length > 0 ? (
-				<form className="task-form" onSubmit={handleSubmit}>
+				<Body><form className="task-form" onSubmit={handleSubmit}>
 					Title:{' '}
 					<input
 						type="text"
@@ -81,6 +92,7 @@ import {
 					<br />
 					<button type="submit">Update Book</button>
 				</form>
+				</Body>
 			) : (
 				<Link to={'/'}> Go Back Home</Link>
 			)}
