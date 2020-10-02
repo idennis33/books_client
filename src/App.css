@@ -1,20 +1,13 @@
-.App {
-  
-}
+
 .page{
   display: flex;
 }
-main{
-  text-align: center;
-  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQkXIQk9ic-LC9uxtee99YkZgDcC7dMS4LypA&usqp=CAU);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 
-h2,h3{
+
+/* h2,h3{
   font-family: 'Playfair Display', serif;
   color: black;
-}
+} */
 
 .edit{
   text-align: center;
