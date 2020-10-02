@@ -24,7 +24,7 @@ export default function New(props) {
   }, []);
   const getBooks = async () => {
     try {
-      const response = await fetch("http://localhost:3000/books");
+      const response = await fetch("https://bookshelves-app-api.herokuapp.com");
       const data = await response.json();
       setBooks(data);
     } catch (error) {
@@ -42,7 +42,7 @@ export default function New(props) {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3000/books",
+        "https://bookshelves-app-api.herokuapp.com",
         formInputs
       );
       const data = response.data;

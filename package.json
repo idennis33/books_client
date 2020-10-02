@@ -1,4 +1,8 @@
 {
+  "engines": {
+    "yarn": "1.22.5",
+    "node": "14.4.0"
+  },
   "name": "books_client",
   "version": "0.1.0",
   "proxy": "http://localhost:3000",
