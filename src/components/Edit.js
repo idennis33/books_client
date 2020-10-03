@@ -21,7 +21,7 @@ import {
 	useEffect(() => {
 		(async () => {
 			try {
-				const response = await fetch(`https://bookshelves-app-api.herokuapp.com/books/${id}`);
+				const response = await fetch(`https://bookshelves-app-api.herokuapp.com/books`);
 				const data = await response.json();
 				await updateBook(data);
 			} catch (e) {
@@ -33,7 +33,7 @@ import {
 		event.preventDefault();
 		try {
 			const submission = { ...book };
-						const response = await fetch(`https://bookshelves-app-api.herokuapp.com/books/${id}`, {
+						const response = await fetch(`https://bookshelves-app-api.herokuapp.com`, {
 				method: 'PUT',
 				headers: {
 					'Content-Type': 'application/json'

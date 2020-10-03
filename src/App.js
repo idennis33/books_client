@@ -83,7 +83,7 @@ export default function App() {
   const handleLogIn = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("https://bookshelves-app-api.herokuapp.com/books", {
+      const response = await axios.post("https://bookshelves-app-api.herokuapp.com", {
         email: state.email,
         password: state.password,
       });
@@ -95,7 +95,7 @@ export default function App() {
   };
   const getBooks = async () => {
     try {
-      const response = await fetch("https://bookshelves-app-api.herokuapp.com/books");
+      const response = await fetch("https://bookshelves-app-api.herokuapp.com");
       const data = await response.json();
       setBooks(data);
     } catch (error) {
@@ -113,7 +113,7 @@ export default function App() {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "https://bookshelves-app-api.herokuapp.com/books",
+        "https://bookshelves-app-api.herokuapp.com",
         formInputs
       );
       const data = response.data;

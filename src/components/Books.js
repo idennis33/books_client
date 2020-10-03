@@ -50,7 +50,7 @@ export default function Books(props) {
             event.preventDefault();
             try {
                 const submission = { ...book };
-                const response = await fetch(`https://bookshelves-app-api.herokuapp.com/books/${id}`, {
+                const response = await fetch(`https://bookshelves-app-api.herokuapp.com`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json'
