@@ -68,7 +68,7 @@ export default function App() {
   const handleSignUp = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("https://bookshelves-app-api.herokuapp.com/users", {
+      const response = await axios.post("https://bookshelves-app-api.herokuapp.com/users/create", {
         email: state.email,
         password: state.password,
       });
@@ -83,7 +83,7 @@ export default function App() {
   const handleLogIn = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("https://bookshelves-app-api.herokuapp.com/users", {
+      const response = await axios.post("https://bookshelves-app-api.herokuapp.com/users/login", {
         email: state.email,
         password: state.password,
       });
