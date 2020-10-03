@@ -68,7 +68,7 @@ export default function App() {
   const handleSignUp = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("https://bookshelves-app-api.herokuapp.com/users/create", {
+      const response = await axios.post("https://bookshelves-app-api.herokuapp.com/users/signup", {
         email: state.email,
         password: state.password,
       });
