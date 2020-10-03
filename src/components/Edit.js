@@ -81,7 +81,7 @@ background-color: grey;
 						id="author"
 						onChange={handleChange}
 						value={book.author}
-					/>
+					/><br/>
 					<img src={book.img}></img><br/>
                     Description:{' '}
 					<input
